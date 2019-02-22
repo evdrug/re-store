@@ -8,7 +8,13 @@ import ErrorBoundry from './components/error-boundry';
 import BookstoreServices from './services/bookstore-services';
 import { BookstoreServicesProvider } from './components/bookstore-services-context';
 import store from './store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 
+
+library.add(fas, fab);
 const bookstoreServices = new BookstoreServices();
 
 ReactDom.render(

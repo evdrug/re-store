@@ -1,0 +1,30 @@
+.my_navbar {
+    width: 280px;
+    background-color: #303336;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.my_navbar-item {
+    width: 100%;
+    color: white;
+}
+
+.my_navbar-link {
+    display: block;
+    padding: 10px 10px;
+    width: 100%;
+    color: white;
+}
+
+.my_navbar-link:hover {
+    text-decoration: none;
+    background-color: #f53;
+    color: #fff;
+}
+
+.wrap_icon-menu {
+    width: 40px;
+    height: 40px;
+}
