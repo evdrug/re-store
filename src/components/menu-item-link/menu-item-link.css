@@ -1,0 +1,46 @@
+
+.menu-item-link {
+    display: flex;
+    padding: 5px 10px;
+    width: 100%;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-item-link:hover {
+    text-decoration: none;
+    background-color: #f53;
+    background: hsla(0,0%,100%,.2);
+    color: #fff;
+    transition: .4s;
+}
+
+.menu-container .menu-container .menu-item-link{
+    padding-left: 20px;
+}
+
+.menu-container .menu-container .menu-container .menu-item-link{
+    padding-left: 30px;
+}
+
+.item-link-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.item-link-label {
+    flex: 1;
+}
+
+.item-link-icon-status{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

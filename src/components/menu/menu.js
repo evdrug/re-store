@@ -1,31 +1,71 @@
 import React, {Component} from 'react';
 import './menu.css';
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import MenuContainer from "../menu-container";
 // import  * as iccons   from '@fortawesome/free-solid-svg-icons'
 
 
 const menu = [
+
     {
         id:1,
         label:'Home',
         icon: ['fa','coffee'],
         parentId: '',
-        to: '/'
+        to: '/',
     },
     {
         id:2,
         label:'Cart',
         icon: ['fab','google'],
         parentId: '',
-        to: '/cart'
+        to: '/cart',
+        submenu: [
+            {
+                id:4,
+                label:'sub1',
+                icon: ['fa','coffee'],
+                parentId: '',
+                to: '/',
+            },
+            {
+                id:5,
+                label:'sub2',
+                icon: ['fa','exchange-alt'],
+                parentId: '',
+                to: '#',
+            },
+            {
+                id:6,
+                label:'sub3',
+                icon: ['fa','exchange-alt'],
+                parentId: '',
+                to: '#',
+                submenu: [
+                    {
+                        id:7,
+                        label:'sub1',
+                        icon: ['fa','coffee'],
+                        parentId: '',
+                        to: '/',
+                    },
+                    {
+                        id:8,
+                        label:'sub4',
+                        icon: ['fa','exchange-alt'],
+                        parentId: '',
+                        to: '#',
+                    }
+                ]
+            }
+        ]
     },
     {
         id:3,
         label:'Test',
         icon: ['fa','exchange-alt'],
         parentId: '',
-        to: '/test'
+        to: '#',
     }
 ];
 
@@ -33,20 +73,7 @@ class Menu extends Component {
     render() {
         return (
             <nav className="my_navbar">
-                <ul className="list-group">
-
-                    {
-                        menu.map((item) => {
-                            return (
-                                <li className="my_navbar-item" key={item.id}>
-                                    <div className={"wrap_icon-menu"}><FontAwesomeIcon icon={item.icon} /></div>
-                                    <Link className="my_navbar-link" to={item.to}>{item.label}</Link>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-
+                <MenuContainer menu={menu} />
             </nav>
         );
     }
