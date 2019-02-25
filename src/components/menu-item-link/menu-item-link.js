@@ -11,7 +11,6 @@ const MenuItemLink = (props) => {
 
     const active = (e) => {
         e.preventDefault();
-        console.log(props);
         props.history.push(item.to);
         activeLink(item)
     };

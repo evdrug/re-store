@@ -21,6 +21,7 @@ const visibleSubmenu = (clickItem) => {
 const activeLink = (clickItem) => {
 
     const func = (store) => {
+
         return store.map( item => {
             if (item.id === clickItem.id) {
                 return {...item, activeLink:true};
