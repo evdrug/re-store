@@ -1,82 +1,46 @@
 import React, {Component} from 'react';
 import './menu.css';
+import { connect } from 'react-redux';
+
 
 import MenuContainer from "../menu-container";
+
 // import  * as iccons   from '@fortawesome/free-solid-svg-icons'
+let tracert =[];
+const parentMenu = (menu, parentId = '') => {
+    const m = menu.filter( item => item.parentId === parentId );
+    return m.map(item => {
+        const copyItem = {...item};
+        copyItem.tracert = [...tracert];
+        tracert.push(item.id);
+        const submenu = parentMenu(menu, copyItem.id);
+        if (submenu.length) {
+            copyItem.submenu = submenu;
+        }
+        tracert.pop();
+        return copyItem;
+    });
+};
 
 
-const menu = [
-
-    {
-        id:1,
-        label:'Home',
-        icon: ['fa','coffee'],
-        parentId: '',
-        to: '/',
-    },
-    {
-        id:2,
-        label:'Cart',
-        icon: ['fab','google'],
-        parentId: '',
-        to: '/cart',
-        submenu: [
-            {
-                id:4,
-                label:'sub1',
-                icon: ['fa','coffee'],
-                parentId: '',
-                to: '/',
-            },
-            {
-                id:5,
-                label:'sub2',
-                icon: ['fa','exchange-alt'],
-                parentId: '',
-                to: '#',
-            },
-            {
-                id:6,
-                label:'sub3',
-                icon: ['fa','exchange-alt'],
-                parentId: '',
-                to: '#',
-                submenu: [
-                    {
-                        id:7,
-                        label:'sub1',
-                        icon: ['fa','coffee'],
-                        parentId: '',
-                        to: '/',
-                    },
-                    {
-                        id:8,
-                        label:'sub4',
-                        icon: ['fa','exchange-alt'],
-                        parentId: '',
-                        to: '#',
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        id:3,
-        label:'Test',
-        icon: ['fa','exchange-alt'],
-        parentId: '',
-        to: '#',
-    }
-];
 
 class Menu extends Component {
     render() {
+        console.log(parentMenu(this.props.menu));
         return (
             <nav className="my_navbar">
-                <MenuContainer menu={menu} />
+                <MenuContainer menu={parentMenu(this.props.menu)} />
             </nav>
         );
     }
 }
 
-export default Menu;
+
+
+const mapToProps = ({ menu }) => {
+    return {
+        menu
+    }
+};
+
+export default connect(mapToProps)(Menu);

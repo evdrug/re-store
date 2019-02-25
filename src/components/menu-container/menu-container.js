@@ -3,17 +3,23 @@ import './menu-container.css';
 import MenuItem from "../menu-item";
 
 const MenuContainer = (props) => {
-    return (
-        <ul className="menu-container">
-            {
-                props.menu.map((item) => {
-                    return (
-                        <MenuItem item={item} key={item.id}/>
-                    )
-                })
-            }
-        </ul>
-    );
+    const { menu, visible } = props;
+    const classVisible = visible ? ' visible' : '';
+    if (menu) {
+        return (
+            <ul className={`menu-container${classVisible}`}>
+                {
+                    menu.map((item) => {
+                        return (
+                            <MenuItem item={item} key={item.id}/>
+                        )
+                    })
+                }
+            </ul>
+        );
+    }
+    return (<span>Нет данных меню</span>)
+
 };
 
 export default MenuContainer;
