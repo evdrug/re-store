@@ -1,46 +1,41 @@
 import React from 'react';
 import './menu-item-link.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {withRouter} from "react-router-dom";
+import MyLink from "../my-link/my-link";
+import MySubLink from "../my-sub-link/my-sub-link";
 
 const MenuItemLink = (props) => {
-    const { item, visibleSubmenu, activeLink } = props;
+    const {item} = props;
     const classVisible = item.visible ? ' rotate-90' : '';
     const classActive = item.activeLink ? ' active' : '';
     const classActiveChild = item.activeChildLink ? ' active-child' : '';
 
-    const active = (e) => {
-        e.preventDefault();
-        props.history.push(item.to);
-        activeLink(item)
-    };
-
     const wrappLink = (item) => {
         return (<React.Fragment>
             <div className={"item-link-icon"}>
-                <FontAwesomeIcon icon={item.icon} />
+                <FontAwesomeIcon icon={item.icon}/>
             </div>
             <div className={"item-link-label"}>
                 {item.label}
             </div>
             <div className={`item-link-icon-status${classVisible}`}>
-                {item.submenu&& (<FontAwesomeIcon icon={['fa','caret-left']} />)}
+                {item.submenu && (<FontAwesomeIcon icon={['fa', 'caret-left']}/>)}
             </div>
         </React.Fragment>)
     };
 
     if (item.submenu) {
         return (
-            <div className={`menu-item-link${classActive}${classActiveChild}`} onClick={() => visibleSubmenu(item) }>
+            <MySubLink className={`menu-item-link${classActive}${classActiveChild}`} item={item}>
                 {wrappLink(item)}
-            </div>
+            </MySubLink>
         );
     }
     return (
-        <a className={`menu-item-link${classActive}${classActiveChild}`} href={item.to} onClick={(e) => active(e)}>
+        <MyLink className={`menu-item-link${classActive}${classActiveChild}`} to={item.to} >
             {wrappLink(item)}
-        </a>
+        </MyLink>
     );
 };
 
-export default withRouter(MenuItemLink);
+export default MenuItemLink;

@@ -1,10 +1,11 @@
-.my_navbar {
-    width: 280px;
-    background-color: #303336;
-    height: 100%;
-    position: fixed;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-left: 0;
-    transition: .7s;
+.menu-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
+.menu-container .menu-container {
+    background: hsla(0,0%,100%,.05);
+    box-shadow: inset 0 0.3em 0.3em -0.3em #0c0d0e, inset 0 -0.3em 0.3em -0.3em #0c0d0e;
+}
+

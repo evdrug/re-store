@@ -5,26 +5,26 @@ import { BrowserRouter as Router} from "react-router-dom";
 
 import App from './components/app';
 import ErrorBoundry from './components/error-boundry';
-import BookstoreServices from './services/bookstore-services';
-import { BookstoreServicesProvider } from './components/bookstore-services-context';
+import APIServices from './services/APIServices';
+import { APIServicesProvider } from "./components/api-services-context";
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-
 library.add(fas, fab);
-const bookstoreServices = new BookstoreServices();
+
+const apiServices = new APIServices();
 
 ReactDom.render(
     <Provider store={store}>
         <ErrorBoundry>
-            <BookstoreServicesProvider value={bookstoreServices}>
+            <APIServicesProvider value={apiServices}>
                 <Router>
                     <App/>
                 </Router>
-            </BookstoreServicesProvider>
+            </APIServicesProvider>
         </ErrorBoundry>
     </Provider>,
     document.getElementById('root')

@@ -3,14 +3,15 @@ import './book-list.css';
 import { connect } from 'react-redux';
 
 import BookListItem from "../book-list-item";
-import { withBookstoreService } from '../hoc';
+import { withAPIServices } from '../hoc';
 import { booksLoaded } from "../../actions";
 import { compose } from '../../utils';
+import MyLink from "../my-link";
 
 class BookList extends Component {
     componentDidMount() {
-        const { bookstoreService } = this.props;
-        const data = bookstoreService.getBooks();
+        const { apiService } = this.props;
+        const data = apiService.getBooks();
         this.props.booksLoaded(data);
     }
 
@@ -25,6 +26,7 @@ class BookList extends Component {
                         )
                     })
                 }
+                <MyLink to={'/xxx/'}  >test</MyLink>
             </ul>
         );
     }
@@ -41,7 +43,7 @@ const mapDispatchToProps =  {
 };
 
 export default compose(
-    withBookstoreService(),
+    withAPIServices(),
     connect(mapStateToProps, mapDispatchToProps)
 )(BookList)
 

@@ -1,3 +1,9 @@
 .wrapper {
+    margin-left: 0px;
+    transition: margin-left .7s;
+}
+
+.wrapper-active-menu {
+    transition: margin-left .7s;
     margin-left: 280px;
 }

@@ -2,24 +2,35 @@ import React from 'react';
 import './app.css';
 import { Route, Switch } from "react-router-dom";
 
-import { HomePage, CartPage } from '../pages';
+import {HomePage, CartPage, VlanPages} from '../pages';
 import Header from "../header";
-import Menu from "../menu";
+import MenuContainer from "../menu-container";
+import {connect} from "react-redux";
+import {menuToggle} from "../../actions/menu";
 
-const App = () => {
+const App = (props) => {
 
     return (
         <div >
-            <Menu/>
-            <div className="wrapper">
+            <MenuContainer/>
+            <div className={props.menuActive ? 'wrapper-active-menu' : 'wrapper' }>
                 <div className="container-fluid">
                     <div className={'row'}>
+                        <div className={'header-wrapper'}>
+                            <Header menuToggle={props.menuToggle} menuActive={props.menuActive}/>
+                        </div>
+                    </div>
+                    <div className={'row mt-5'}>
                         <div className={'col'}>
-                            <Header/>
-                            <Switch>
-                                <Route exact path='/' component={HomePage}/>
-                                <Route path='/cart' component={CartPage}/>
-                            </Switch>
+                                <Switch>
+                                    <Route exact path='/' component={HomePage}/>
+                                    <Route exact path='/cart/' component={CartPage}/>
+                                    <Route path='/cart/:id' component={CartPage}/>
+                                    <Route path='/vlans/' component={VlanPages}/>
+                                    <Route path='/xxx' render={() => {
+                                        return (<div>H1</div>);
+                                    } }/>
+                                </Switch>
                         </div>
                     </div>
                 </div>
@@ -29,4 +40,15 @@ const App = () => {
     );
 };
 
-export default App;
+const mapStateToProps = ({menuState:{menuActive}}) => {
+    return {
+        menuActive
+    }
+};
+
+const mapDispatchToProps = {
+    menuToggle
+};
+
+
+export default connect (mapStateToProps, mapDispatchToProps)(App);
