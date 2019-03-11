@@ -32,15 +32,40 @@ const menuReducer = (state, action) => {
             };
 
         case 'MENU_VISIBLE_SUBMENU':
-            return {
-                ...menuState,
-                menu: action.payload([...menuState.menu]),
+            const subMenu = {...action.payload, visible:!action.payload.visible};
+            const visibleSubMenu = (store) => {
+                return store.map( item => {
+                    if (action.payload.tracert.filter(ck => ck === item.id).length) {
+                        return {...item, visible:true};
+                    }
+                    if (item.id === subMenu.id ) {
+                        return subMenu;
+                    }
+                    return {...item, visible:false}
+                })
             };
-
-        case 'MENU_ACTIVE_LINK':
             return {
                 ...menuState,
-                menu: action.payload([...menuState.menu])
+                menu: visibleSubMenu([...menuState.menu]),
+            };
+        case 'MENU_ACTIVE_LINK':
+            const aciveLink = (store) => {
+                const filterItem = store.filter(link => link.to === action.payload);
+                const itemMenu = filterItem.length ? filterItem[0] : {id:'', tracert:[]};
+                return store.map( item => {
+                    if (item.id === itemMenu.id) {
+                        return {...item, activeLink:true};
+                    }
+
+                    if (itemMenu.tracert.filter(ck => ck === item.id).length) {
+                        return {...item, activeLink:false, activeChildLink:true, visible:true};
+                    }
+                    return {...item, activeLink:false, activeChildLink:false, visible:false}
+                });
+            };
+            return {
+                ...menuState,
+                menu: aciveLink([...menuState.menu])
             };
         case 'MENU_TOGGLE':
             return {
