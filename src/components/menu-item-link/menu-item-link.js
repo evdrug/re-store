@@ -4,8 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import MyLink from "../my-link/my-link";
 import MySubLink from "../my-sub-link/my-sub-link";
 
-const MenuItemLink = (props) => {
-    const {item} = props;
+const MenuItemLink = ({item}) => {
     const classVisible = item.visible ? ' rotate-90' : '';
     const classActive = item.activeLink ? ' active' : '';
     const classActiveChild = item.activeChildLink ? ' active-child' : '';
@@ -13,7 +12,7 @@ const MenuItemLink = (props) => {
     const wrappLink = (item) => {
         return (<React.Fragment>
             <div className={"item-link-icon"}>
-                <FontAwesomeIcon icon={item.icon}/>
+                <FontAwesomeIcon icon={item.icon || ["fab","gripfire"]}/>
             </div>
             <div className={"item-link-label"}>
                 {item.label}

@@ -36,8 +36,15 @@ export default class APIServices {
         },
         {
             id:5,
+            label:'Добавить влан',
+            icon: ['fa','plus-square'],
+            parentId: 2,
+            to: '/vlans/add/',
+        },
+        {
+            id:25,
             label:'sub2',
-            icon: ['fa','exchange-alt'],
+            icon: '',
             parentId: 2,
             to: '#',
         },
@@ -95,14 +102,14 @@ export default class APIServices {
             id:15,
             label:'TestSub1',
             icon: ['fa','exchange-alt'],
-            parentId: 5,
+            parentId: 25,
             to: '#',
         },
         {
             id:16,
             label:'TestSub2',
             icon: ['fa','exchange-alt'],
-            parentId: 5,
+            parentId: 25,
             to: '#',
         }
     ];
@@ -114,20 +121,21 @@ export default class APIServices {
              vlanIdP2: 20,
              shape: '3M@172.17.26.3',
              commentMap: 'text comment Map',
-             userName:'bot',
+             userName:'user_Bot',
              info: [
                  {
                      id: 1,
                      client: 'Test Client',
-                     address: 'Галерный пр.3',
+                     address: 'Бугровское сельское поселение, массив Порошкино, 23 км КАД (внутреннее кольцо) ул., стр. 2',
                      switch: '172.17.1.86',
                      port: '10',
                      account: '8000010426',
-                     typePort: 'access',
+                     typePort: 'untagget',
                      typeTask: 'z',
-                     comment: 'comment point',
+                     numberTask: '326566',
+                     comment: 'Можно сделать отдельный комментарий для точки, если надо кому нибудь))',
                      typePoint: 'p',
-                     user: 'bot'
+                     user: 'user_Bot'
                  },
                  {
                      id: 2,
@@ -136,11 +144,12 @@ export default class APIServices {
                      switch: '172.17.1.110',
                      port: '8',
                      account: '8000010427',
-                     typePort: 'access',
+                     typePort: 'untagget',
                      typeTask: 'z',
-                     comment: 'comment point',
+                     numberTask: '326567',
+                     comment: '',
                      typePoint: 'p',
-                     user: 'bot'
+                     user: 'user_Bot'
                  }
              ]
          },
@@ -151,7 +160,7 @@ export default class APIServices {
              vlanIdP2: 10,
              shape: '30M@172.17.1.3',
              commentMap: 'text comment Map 2',
-             userName:'bot',
+             userName:'user_Bot',
              info: [
                  {
                      id: 1,
@@ -160,11 +169,12 @@ export default class APIServices {
                      switch: '172.17.22.86',
                      port: '10',
                      account: '8000010359',
-                     typePort: 'access',
+                     typePort: 'untagget',
                      typeTask: 'z',
+                     numberTask: '326569',
                      comment: 'comment point',
                      typePoint: 'p',
-                     user: 'bot'
+                     user: 'user_Bot'
                  },
                  {
                      id: 2,
@@ -175,9 +185,10 @@ export default class APIServices {
                      account: '8000010465',
                      typePort: 'tagget',
                      typeTask: 'z',
+                     numberTask: '326461',
                      comment: 'comment point',
                      typePoint: 'mp',
-                     user: 'bot'
+                     user: 'user_Bot'
                  }
              ]
          },
@@ -188,7 +199,7 @@ export default class APIServices {
              vlanIdP2: 10,
              shape: '30M@172.17.1.3',
              commentMap: 'text comment Map 2',
-             userName:'bot',
+             userName:'user_Bot',
              info: [
                  {
                      id: 1,
@@ -197,11 +208,12 @@ export default class APIServices {
                      switch: '172.17.22.86',
                      port: '10',
                      account: '8000010359',
-                     typePort: 'access',
-                     typeTask: 'z',
+                     typePort: 'untagget',
+                     typeTask: 'o',
+                     numberTask: '1300887',
                      comment: 'comment point',
                      typePoint: 'p',
-                     user: 'bot'
+                     user: 'user_Bot'
                  },
              ]
          },
@@ -212,7 +224,7 @@ export default class APIServices {
              vlanIdP2: 35,
              shape: '30M@172.17.1.3',
              commentMap: 'text comment Map 2',
-             userName:'bot',
+             userName:'user_Bot',
              info: [
 
              ]

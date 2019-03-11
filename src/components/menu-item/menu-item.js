@@ -8,8 +8,8 @@ const MenuItem = (props) => {
     const { item } = props;
     return (
         <li className="menu-item">
-            <MenuItemLink item={item} {...props}/>
-            {item.submenu&& (<Menu menu={item.submenu} visible={item.visible}/>)}
+            <MenuItemLink item={item}/>
+            {item.submenu && (<Menu menu={item.submenu} visible={item.visible}/>)}
         </li>
     );
 };

@@ -1,0 +1,23 @@
+.wrap-info {
+    padding: 5px;
+    background-color: rgba(255, 85, 51, 0.14);
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.wrap-info > div {
+    border-bottom: 1px solid #b7b7b7;
+    padding-left: 10px;
+}
+
+.wrap-info > div:last-child {
+    border-bottom: none;
+}
+
+
+.point-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

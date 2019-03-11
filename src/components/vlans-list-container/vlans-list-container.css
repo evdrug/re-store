@@ -1,0 +1,23 @@
+.td-vlan {
+    /*min-width: 100px;*/
+}
+
+.position-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 575.98px) {
+    .hr-container {
+        border-bottom: 4px solid gray;
+    }
+}
+
+.btn-margin {
+    margin-right: 5px;
+}
+

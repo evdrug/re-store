@@ -9,7 +9,7 @@ const Header = (props) => {
         <div className={props.menuActive ? "header menu-active" : "header"}>
             <div className={'header-container'}>
                 <div className={"headerMenu"} onClick={props.menuToggle}><FontAwesomeIcon icon={['fa', 'bars']} size={"2x"}/></div>
-                <h1 className={'logo'}><MyLink to={'/'}>ReStore</MyLink></h1>
+                <h1 className={'logo'}><MyLink to={'/'}>Что-то напишем</MyLink></h1>
                 <div><MyLink to={'/cart/'}> 5 items ($210)</MyLink></div>
             </div>
 

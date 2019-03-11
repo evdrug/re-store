@@ -7,3 +7,24 @@
     transition: margin-left .7s;
     margin-left: 280px;
 }
+
+.wrapper-block {
+
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.wrapper-client {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 8px;
+    padding-top: 30px;
+    margin-bottom: 10px;
+}
+
+.map-vlan-form {
+    opacity: 0;
+}
+.map-vlan-form.opacity {
+    opacity: 1;
+    transition: .5s;
+}
